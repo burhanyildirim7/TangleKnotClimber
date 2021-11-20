@@ -45,11 +45,3 @@ The following packages were added:
   com.unity.timeline@1.5.6
   com.unity.ugui@1.0.0
   com.unity.visualscripting@1.6.1
-
-=== Wed Nov 10 00:14:21 2021
-
-Packages were changed.
-Update Mode: updateDependencies
-
-The following packages were updated:
-  com.unity.timeline from version 1.5.6 to 1.5.7

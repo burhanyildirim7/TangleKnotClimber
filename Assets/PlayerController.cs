@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     public bool isOnRight;  // player saðda mý solda mý??
+    public bool isAvaliable = false;
 
 	private void Awake()
 	{
@@ -23,16 +24,19 @@ public class PlayerController : MonoBehaviour
 
 	public void Jump()
 	{
-        if (isOnRight)
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(-4.5f, 4.5f, 0), ForceMode.Impulse);
-            isOnRight = false;
-        }
-        else
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(4.5f, 4.5f, 0), ForceMode.Impulse);
-            isOnRight = true;
-        }
+		if (isAvaliable)
+		{
+            if (isOnRight)
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(-4.5f, 4.5f, 0), ForceMode.Impulse);
+                isOnRight = false;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(4.5f, 4.5f, 0), ForceMode.Impulse);
+                isOnRight = true;
+            }
+        }     
     }
 
 	private void OnCollisionEnter(Collision collision)
