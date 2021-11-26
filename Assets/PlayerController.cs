@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        else Destroy(this);
+        else instance = this;
     }
 
     private void Start()
