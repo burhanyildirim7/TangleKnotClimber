@@ -13,6 +13,9 @@ TagManager:
   - boy
   - dedectSag
   - dedectSol
+  - star
+  - StartPlt
+  - Obstacle
   layers:
   - Default
   - TransparentFX

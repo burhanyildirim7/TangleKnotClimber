@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     public bool isOnRight;  // player saðda mý solda mý??
     public bool isPosLeft;
     public bool isAvaliable = false;
+    [SerializeField] GameObject PlayerObje;
     [SerializeField] Animator playerAnimator;
     [SerializeField] bool finishSagda;
-
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -37,17 +37,18 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             playerAnimator.SetBool("Jump",true);
+            playerAnimator.SetBool("Idle", false);
             if (isOnRight)
             {
                 if (isPosLeft)
                 {
                     GetComponent<Rigidbody>().AddForce(new Vector3(-2.5f, 4.5f, 0), ForceMode.Impulse);
-
+                    PlayerObje.transform.eulerAngles = new Vector3(0, -90, 0);
                 }
                 else
                 {
                     GetComponent<Rigidbody>().AddForce(new Vector3(-4.5f, 4.5f, 0), ForceMode.Impulse);
-
+                    PlayerObje.transform.eulerAngles = new Vector3(0, -90, 0);
                 }
                 //isOnRight = false;
             }
@@ -56,12 +57,12 @@ public class PlayerController : MonoBehaviour
                 if (isPosLeft)
                 {
                     GetComponent<Rigidbody>().AddForce(new Vector3(4.5f, 4.5f, 0), ForceMode.Impulse);
-
+                    PlayerObje.transform.eulerAngles = new Vector3(0,90,0);
                 }
                 else
                 {
                     GetComponent<Rigidbody>().AddForce(new Vector3(2.5f, 4.5f, 0), ForceMode.Impulse);
-
+                    PlayerObje.transform.eulerAngles = new Vector3(0, 90, 0);
                 }
                 //isOnRight = true;
             }
@@ -70,25 +71,56 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        playerAnimator.SetBool("Jump", false);
+       playerAnimator.SetBool("Jump", false);
         Debug.Log("çalýþtý");
         if (collision.gameObject.tag == "platform")
         {
+            isAvaliable = false;
             transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif=false;
             transform.parent.GetChild(1).gameObject.GetComponent<DedectSolControl>().dedectsolaktif = false;
+            if (transform.parent.tag=="StartPlt")
+            {
+                transform.parent.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
+                transform.parent.GetChild(1).gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
 
             transform.SetParent(collision.gameObject.transform);
 
             transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif = true;
             transform.parent.GetChild(1).gameObject.GetComponent<DedectSolControl>().dedectsolaktif = true;
 
-            SetPlayerPlatformPosition();
+            SetPlayerPlatformPosition(collision.gameObject);
 
         }
         else if(collision.gameObject.tag == "Finish")
         {
+            playerAnimator.SetBool("Victory", true);
+            collision.gameObject.GetComponent<FinishScript>().oyunSonuFonk();
+            transform.SetParent(collision.gameObject.transform);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            
         }
+        else if (collision.gameObject.tag == "Obstacle")
+        {
+            isAvaliable = false;
+            transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif = false;
+            transform.parent.GetChild(1).gameObject.GetComponent<DedectSolControl>().dedectsolaktif = false;
+            if (transform.parent.tag == "StartPlt")
+            {
+                transform.parent.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
+                transform.parent.GetChild(1).gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+
+            transform.SetParent(collision.gameObject.transform);
+
+            transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif = true;
+            transform.parent.GetChild(1).gameObject.GetComponent<DedectSolControl>().dedectsolaktif = true;
+
+            SetPlayerPlatformPosition(collision.gameObject);
+            playerAnimator.SetBool("Idle", true);
+
+        }
+
     }
 
     IEnumerator SetPlayerStandingPosition()
@@ -113,26 +145,41 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void SetPlayerPlatformPosition()
+    public void SetPlayerPlatformPosition(GameObject tempTagObj)
     {
         /*if (isOnRight) transform.DOMoveX(2, .1f).SetEase(Ease.Linear);
         else transform.DOMoveX(-2,.1f).SetEase(Ease.Linear);*/
 
         if (isOnRight)
         {
+            if (tempTagObj.tag=="Obstacle")
+            {
+                transform.localPosition = new Vector3(-0.1f, 2.8f, 0);
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-            transform.localPosition = new Vector3(-0.2f, 4.5f, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+            else
+            {
+                transform.localPosition = new Vector3(-0.1f, 4.5f, 0);
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+            }
 
         }
         else
         {
+            if (tempTagObj.tag == "Obstacle")
+            {
+                transform.localPosition = new Vector3(0.1f, 2.8f, 0);
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-            transform.localPosition = new Vector3(0.2f, 4.5f, 0);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(0.1f, 4.5f, 0);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+            }
         }
     }
-
 
 }

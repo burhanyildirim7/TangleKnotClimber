@@ -25,84 +25,89 @@ public class Move3D : MonoBehaviour
     }
 
 	private void OnMouseDrag()
-	{
-        Vector3 ScreenPosition = new Vector3(
-            Input.mousePosition.x, Input.mousePosition.y, CameraZDistance);
-        Vector3 NewWorldPosition = mainCamera.ScreenToWorldPoint(ScreenPosition);
-		if (transform.CompareTag("handleR"))
-		{
-
-            if(platformFirstRight.transform.position.y + 3 < Tavan.transform.position.y && transform.position.y +3 < Tavan.transform.position.y)
-			{
-                tempY = NewWorldPosition.y - transform.position.y;
-                NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-            }
-            else if(platformFirstRight.transform.position.y + 3 >= Tavan.transform.position.y)
-			{
-                tempY = NewWorldPosition.y - transform.position.y;
-                if(tempY > 0)
-				{
-                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-                }
-            }
-            else if (transform.position.y + 3 >= Tavan.transform.position.y)
-            {
-                tempY = NewWorldPosition.y - transform.position.y;
-                if (tempY < 0)
-                {
-                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-                }
-            }
-        }
-        else if (transform.CompareTag("handleL"))
+    {
+        if (GameObject.Find("UIController").GetComponent<UIControllerScript>().isTapToStart)
         {
-            if (platformFirstLeft.transform.position.y + 3 < Tavan.transform.position.y && transform.position.y + 3 < Tavan.transform.position.y)
+            Vector3 ScreenPosition = new Vector3(
+    Input.mousePosition.x, Input.mousePosition.y, CameraZDistance);
+            Vector3 NewWorldPosition = mainCamera.ScreenToWorldPoint(ScreenPosition);
+            if (transform.CompareTag("handleR"))
             {
-                tempY = NewWorldPosition.y - transform.position.y;
-                NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-            }
-            else if (platformFirstLeft.transform.position.y + 3 >= Tavan.transform.position.y)
-            {
-                tempY = NewWorldPosition.y - transform.position.y;
-                if (tempY > 0)
-                {
-                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-                }
-            }
-            else if (transform.position.y + 3 >= Tavan.transform.position.y)
-            {
-                tempY = NewWorldPosition.y - transform.position.y;
-                if (tempY < 0)
-                {
-                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-                }
-            }
-            //tempY = NewWorldPosition.y - transform.position.y;
-            //NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
-            //NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
-            //HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
-        }
 
-        ControlNodesR();
-        ControlNodesL();
-        ControlHorizontalNodes();
-	}
+                if (platformFirstRight.transform.position.y + 3 < Tavan.transform.position.y && transform.position.y + 3 < Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                }
+                else if (platformFirstRight.transform.position.y + 3 >= Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    if (tempY > 0)
+                    {
+                        NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                        NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                        HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                    }
+                }
+                else if (transform.position.y + 3 >= Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    if (tempY < 0)
+                    {
+                        NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                        NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                        HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x - tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                    }
+                }
+            }
+            else if (transform.CompareTag("handleL"))
+            {
+                if (platformFirstLeft.transform.position.y + 3 < Tavan.transform.position.y && transform.position.y + 3 < Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                    NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                    HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                }
+                else if (platformFirstLeft.transform.position.y + 3 >= Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    if (tempY > 0)
+                    {
+                        NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                        NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                        HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                    }
+                }
+                else if (transform.position.y + 3 >= Tavan.transform.position.y)
+                {
+                    tempY = NewWorldPosition.y - transform.position.y;
+                    if (tempY < 0)
+                    {
+                        NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                        NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                        HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+                    }
+                }
+                //tempY = NewWorldPosition.y - transform.position.y;
+                //NodesR.transform.position = new Vector3(NodesR.transform.position.x, NodesR.transform.position.y + tempY, NodesR.transform.position.z);
+                //NodesL.transform.position = new Vector3(NodesL.transform.position.x, NodesL.transform.position.y - tempY, NodesL.transform.position.z);
+                //HorizontalNodes.transform.position = new Vector3(HorizontalNodes.transform.position.x + tempY, HorizontalNodes.transform.position.y, HorizontalNodes.transform.position.z);
+            }
+
+            ControlNodesR();
+            ControlNodesL();
+            ControlHorizontalNodes();
+
+        }
+    }
 
 	private void OnMouseUp()
 	{
-        PlayerController.instance.Jump();
+       // PlayerController.instance.Jump();
+        FindObjectOfType<PlayerController>().Jump();
 	}
 
 
