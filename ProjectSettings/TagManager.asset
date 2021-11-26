@@ -8,6 +8,11 @@ TagManager:
   - handleR
   - platform
   - dedector
+  - Missile
+  - girl
+  - boy
+  - dedectSag
+  - dedectSol
   layers:
   - Default
   - TransparentFX

@@ -108,7 +108,7 @@ public class Move3D : MonoBehaviour
 
 	private void ControlNodesR()
 	{
-		for (int i = 0; i < NodesR.transform.childCount-1; i++)
+		for (int i = 2; i < NodesR.transform.childCount; i++)
 		{
             if(NodesR.transform.GetChild(i).transform.position.y < Tavan.transform.position.y)
 			{
@@ -123,7 +123,7 @@ public class Move3D : MonoBehaviour
 
     private void ControlNodesL()
 	{
-        for (int i = 0; i < NodesL.transform.childCount-1; i++)
+        for (int i = 2; i < NodesL.transform.childCount; i++)
         {
             if (NodesL.transform.GetChild(i).transform.position.y < Tavan.transform.position.y)
             {
