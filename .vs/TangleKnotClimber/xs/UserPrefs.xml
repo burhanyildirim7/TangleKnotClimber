@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{BC586999-7AC6-7DD1-38D0-DFA565EF9017}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DedectSagControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelController.cs">
     <Files>
       <File FileName="Assets/Move3D.cs" Line="110" Column="92" />
-      <File FileName="Assets/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="53" Column="1" />
-      <File FileName="Assets/Scripts/UIControllerScript.cs" Line="94" Column="40" />
-      <File FileName="Assets/PlatformDedector.cs" Line="1" Column="1" />
-      <File FileName="Assets/NodesController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Move3DL.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Swipe.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FinishScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DragHandle.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DedectSolControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerController.cs" />
+      <File FileName="Assets/Scripts/LevelController.cs" Line="87" Column="14" />
+      <File FileName="Assets/Scripts/UIControllerScript.cs" />
+      <File FileName="Assets/PlatformDedector.cs" />
+      <File FileName="Assets/NodesController.cs" />
+      <File FileName="Assets/Move3DL.cs" />
+      <File FileName="Assets/Scripts/Swipe.cs" />
+      <File FileName="Assets/Scripts/FinishScript.cs" />
+      <File FileName="Assets/Scripts/DragHandle.cs" />
+      <File FileName="Assets/Scripts/DedectSolControl.cs" />
       <File FileName="Assets/Scripts/DedectSagControl.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -20,7 +20,7 @@
           <Node name="TangleKnotClimber" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="DedectSagControl.cs" selected="True" />
+                <Node name="LevelController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -30,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="74d600fe-4b6e-4ec9-a855-0c55f0efe012" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1370af6a-950b-437a-80dd-8dd249a27c88" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
