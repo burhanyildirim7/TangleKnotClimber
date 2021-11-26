@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject PlayerObje;
     [SerializeField] Animator playerAnimator;
     [SerializeField] bool finishSagda;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -27,7 +28,6 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < 0) isOnRight = false;
         else if (transform.position.x > 0) isOnRight = true;
     }
-
     public void Jump()
     {
         if (isAvaliable)
