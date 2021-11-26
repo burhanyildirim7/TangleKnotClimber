@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.47884, g: 0.8001845, b: 0.90072787, a: 1}
+  m_IndirectSpecularColor: {r: 0.47831732, g: 0.7993992, b: 0.89849794, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -446,6 +446,7 @@ MonoBehaviour:
   TTSSPCorrencyText: {fileID: 1085068222}
   GSPCorrencyText: {fileID: 9055595366996039103}
   WSPCorrencyText: {fileID: 55326691}
+  _levelText: {fileID: 671929437}
   StarObjs:
   - {fileID: 1623338588466887561}
   - {fileID: 2104471248323148376}
@@ -1183,7 +1184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc4a0eac8c77264b950b147692fce56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Leveller:
+  _leveller:
+  - {fileID: 1533515581813122477, guid: 89526c5b82c673d4891d3d2a36954651, type: 3}
+  - {fileID: 5543907218151679406, guid: 96536a1434b025a41992a79600393392, type: 3}
+  - {fileID: 3476690963830900097, guid: 6499517c7d1a2184dbb5e0bd84041f87, type: 3}
+  - {fileID: 1533515581813122477, guid: 89526c5b82c673d4891d3d2a36954651, type: 3}
+  - {fileID: 5543907218151679406, guid: 96536a1434b025a41992a79600393392, type: 3}
+  - {fileID: 3476690963830900097, guid: 6499517c7d1a2184dbb5e0bd84041f87, type: 3}
   - {fileID: 1533515581813122477, guid: 89526c5b82c673d4891d3d2a36954651, type: 3}
   - {fileID: 5543907218151679406, guid: 96536a1434b025a41992a79600393392, type: 3}
   - {fileID: 3476690963830900097, guid: 6499517c7d1a2184dbb5e0bd84041f87, type: 3}

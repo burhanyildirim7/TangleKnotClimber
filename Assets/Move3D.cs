@@ -6,11 +6,11 @@ public class Move3D : MonoBehaviour
 {
     private Camera mainCamera;
     private float CameraZDistance;
-    public GameObject NodesR,NodesL;
+    public GameObject NodesR, NodesL;
     public GameObject Tavan;
     public GameObject DuvarR, DuvarL;
     public GameObject HorizontalNodes;
-    public GameObject platformFirstRight,platformFirstLeft;
+    public GameObject platformFirstRight, platformFirstLeft;
     private float tempY;
 
 
@@ -24,7 +24,7 @@ public class Move3D : MonoBehaviour
         ControlHorizontalNodes();
     }
 
-	private void OnMouseDrag()
+    private void OnMouseDrag()
     {
         if (GameObject.Find("UIController").GetComponent<UIControllerScript>().isTapToStart)
         {
@@ -104,30 +104,30 @@ public class Move3D : MonoBehaviour
         }
     }
 
-	private void OnMouseUp()
-	{
-       // PlayerController.instance.Jump();
-        FindObjectOfType<PlayerController>().Jump();
-	}
+    private void OnMouseUp()
+    {
+        // PlayerController.instance.Jump();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Jump();
+    }
 
 
-	private void ControlNodesR()
-	{
-		for (int i = 2; i < NodesR.transform.childCount; i++)
-		{
-            if(NodesR.transform.GetChild(i).transform.position.y < Tavan.transform.position.y)
-			{
+    private void ControlNodesR()
+    {
+        for (int i = 2; i < NodesR.transform.childCount; i++)
+        {
+            if (NodesR.transform.GetChild(i).transform.position.y < Tavan.transform.position.y)
+            {
                 NodesR.transform.GetChild(i).transform.GetComponent<Renderer>().enabled = true;
-			}
-			else
-			{
+            }
+            else
+            {
                 NodesR.transform.GetChild(i).transform.GetComponent<Renderer>().enabled = false;
             }
-		}
-	}
+        }
+    }
 
     private void ControlNodesL()
-	{
+    {
         for (int i = 2; i < NodesL.transform.childCount; i++)
         {
             if (NodesL.transform.GetChild(i).transform.position.y < Tavan.transform.position.y)
@@ -142,7 +142,7 @@ public class Move3D : MonoBehaviour
     }
 
     private void ControlHorizontalNodes()
-	{
+    {
         for (int i = 0; i < HorizontalNodes.transform.childCount; i++)
         {
             if (HorizontalNodes.transform.GetChild(i).transform.position.x < DuvarR.transform.position.x &&
