@@ -4,7 +4,7 @@
       <File FileName="Assets/Scripts/YönlendirmeScript.cs" Line="8" Column="17" />
       <File FileName="Assets/Move3D.cs" />
       <File FileName="Assets/PlayerController.cs" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="87" Column="14" />
+      <File FileName="Assets/Scripts/LevelController.cs" />
       <File FileName="Assets/Scripts/UIControllerScript.cs" />
       <File FileName="Assets/PlatformDedector.cs" />
       <File FileName="Assets/NodesController.cs" />
