@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YönlendirmeScript : MonoBehaviour
+public class YonlendirmeScript : MonoBehaviour
 {
 
     [SerializeField] private bool _level1;
