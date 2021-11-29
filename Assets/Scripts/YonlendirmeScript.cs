@@ -62,40 +62,40 @@ public class YonlendirmeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "platform" && _level1 && _level1Platform1)
+        if (other.gameObject.tag == "dedectSag" && _level1 && _level1Platform1)
         {
             _okYukariLevel1.SetActive(false);
             _tikler[0].SetActive(true);
             _okAsagiLevel1.SetActive(true);
             BoolScript._bireDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level1 && _level1Platform2 && BoolScript._bireDegdi)
+        else if (other.gameObject.tag == "dedectSag" && _level1 && _level1Platform2 && BoolScript._bireDegdi)
         {
             _okAsagiLevel1.SetActive(false);
             _tikler[1].SetActive(true);
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform1)
+        else if (other.gameObject.tag == "dedectSag" && _level2 && _level2Platform1)
         {
             _ok1YukariLevel2.SetActive(false);
             _tikler[2].SetActive(true);
             _ok1AsagiLevel2.SetActive(true);
             BoolScript._ikiyeDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform2 && BoolScript._ikiyeDegdi)
+        else if (other.gameObject.tag == "dedectSag" && _level2 && _level2Platform2 && BoolScript._ikiyeDegdi)
         {
             _ok1AsagiLevel2.SetActive(false);
             _tikler[3].SetActive(true);
             _ok2YukariLevel2.SetActive(true);
             BoolScript._üceDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform3 && BoolScript._üceDegdi && BoolScript._ortaNoktaKontrol)
+        else if (other.gameObject.tag == "dedectSag" && _level2 && _level2Platform3 && BoolScript._üceDegdi && BoolScript._ortaNoktaKontrol)
         {
             _ok2YukariLevel2.SetActive(false);
             _tikler[4].SetActive(true);
             _ok2AsagiLevel2.SetActive(true);
             BoolScript._dördeDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform4 && BoolScript._dördeDegdi && BoolScript._ortaNoktaKontrol)
+        else if (other.gameObject.tag == "dedectSag" && _level2 && _level2Platform4 && BoolScript._dördeDegdi && BoolScript._ortaNoktaKontrol)
         {
             _ok2AsagiLevel2.SetActive(false);
             _tikler[5].SetActive(true);
@@ -104,7 +104,7 @@ public class YonlendirmeScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "platform")
+        if (other.gameObject.tag == "dedectSag")
         {
             _tikler[0].SetActive(false);
             _tikler[1].SetActive(false);
