@@ -23,6 +23,8 @@ public class UIControllerScript : MonoBehaviour
     private int toplamStarAdeti;
     private int tempToplamStar;
     private int startSayac;
+
+    private int _oyunBasladi;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,17 @@ public class UIControllerScript : MonoBehaviour
         TTSSPCorrencyText.text = toplamStarAdeti.ToString();
         GSPCorrencyText.text = toplamStarAdeti.ToString();
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        _oyunBasladi = PlayerPrefs.GetInt("OyunBasladi");
+        if (_oyunBasladi == 0)
+        {
+            PlayerPrefs.SetInt("LevelNumber", 1);
+            _oyunBasladi = 1;
+            PlayerPrefs.SetInt("OyunBasladi", _oyunBasladi);
+        }
+        else
+        {
+
+        }
         _levelText.text = "Level " + _levelNumber.ToString();
     }
 

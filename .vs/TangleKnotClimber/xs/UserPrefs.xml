@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{BC586999-7AC6-7DD1-38D0-DFA565EF9017}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/YönlendirmeScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BoolScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/YönlendirmeScript.cs" Line="8" Column="17" />
+      <File FileName="Assets/Scripts/YönlendirmeScript.cs" Line="97" Column="30" />
       <File FileName="Assets/Move3D.cs" />
       <File FileName="Assets/PlayerController.cs" />
       <File FileName="Assets/Scripts/LevelController.cs" />
@@ -14,6 +14,8 @@
       <File FileName="Assets/Scripts/DragHandle.cs" />
       <File FileName="Assets/Scripts/DedectSolControl.cs" />
       <File FileName="Assets/Scripts/DedectSagControl.cs" />
+      <File FileName="Assets/Scripts/YonlendirmeScript.cs" Line="83" Column="84" />
+      <File FileName="Assets/Scripts/BoolScript.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +23,7 @@
           <Node name="TangleKnotClimber" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="YönlendirmeScript.cs" selected="True" />
+                <Node name="BoolScript.cs" selected="True" />
               </Node>
             </Node>
           </Node>

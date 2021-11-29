@@ -27,6 +27,7 @@ public class YonlendirmeScript : MonoBehaviour
     [SerializeField] private List<GameObject> _tikler = new List<GameObject>();
 
 
+
     void Start()
     {
         _okYukariLevel1.SetActive(false);
@@ -42,6 +43,11 @@ public class YonlendirmeScript : MonoBehaviour
         _tikler[3].SetActive(false);
         _tikler[4].SetActive(false);
         _tikler[5].SetActive(false);
+
+        BoolScript._bireDegdi = false;
+        BoolScript._ikiyeDegdi = false;
+        BoolScript._üceDegdi = false;
+        BoolScript._dördeDegdi = false;
 
         if (_level1)
         {
@@ -61,8 +67,9 @@ public class YonlendirmeScript : MonoBehaviour
             _okYukariLevel1.SetActive(false);
             _tikler[0].SetActive(true);
             _okAsagiLevel1.SetActive(true);
+            BoolScript._bireDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level1 && _level1Platform2)
+        else if (other.gameObject.tag == "platform" && _level1 && _level1Platform2 && BoolScript._bireDegdi)
         {
             _okAsagiLevel1.SetActive(false);
             _tikler[1].SetActive(true);
@@ -72,20 +79,23 @@ public class YonlendirmeScript : MonoBehaviour
             _ok1YukariLevel2.SetActive(false);
             _tikler[2].SetActive(true);
             _ok1AsagiLevel2.SetActive(true);
+            BoolScript._ikiyeDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform2)
+        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform2 && BoolScript._ikiyeDegdi)
         {
             _ok1AsagiLevel2.SetActive(false);
             _tikler[3].SetActive(true);
             _ok2YukariLevel2.SetActive(true);
+            BoolScript._üceDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform3)
+        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform3 && BoolScript._üceDegdi)
         {
             _ok2YukariLevel2.SetActive(false);
             _tikler[4].SetActive(true);
             _ok2AsagiLevel2.SetActive(true);
+            BoolScript._dördeDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform4)
+        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform4 && BoolScript._dördeDegdi)
         {
             _ok2AsagiLevel2.SetActive(false);
             _tikler[5].SetActive(true);
