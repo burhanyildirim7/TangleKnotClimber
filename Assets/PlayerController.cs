@@ -7,7 +7,7 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    public bool isOnRight;  // player saðda mý solda mý??
+    public bool isOnRight;  // player sa?da m? solda m???
     public bool isPosLeft;
     public bool isAvaliable = false;
     [SerializeField] GameObject PlayerObje;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            playerAnimator.SetBool("Jump",true);
+            playerAnimator.SetBool("Jump", true);
             playerAnimator.SetBool("Idle", false);
             if (isOnRight)
             {
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 if (isPosLeft)
                 {
                     GetComponent<Rigidbody>().AddForce(new Vector3(4.5f, 4.5f, 0), ForceMode.Impulse);
-                    PlayerObje.transform.eulerAngles = new Vector3(0,90,0);
+                    PlayerObje.transform.eulerAngles = new Vector3(0, 90, 0);
                 }
                 else
                 {
@@ -71,14 +71,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       playerAnimator.SetBool("Jump", false);
-        Debug.Log("çalýþtý");
+        playerAnimator.SetBool("Jump", false);
+        Debug.Log("?al??t?");
         if (collision.gameObject.tag == "platform")
         {
             isAvaliable = false;
-            transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif=false;
+            transform.parent.GetChild(0).gameObject.GetComponent<DedectSagControl>().dedectsagaktif = false;
             transform.parent.GetChild(1).gameObject.GetComponent<DedectSolControl>().dedectsolaktif = false;
-            if (transform.parent.tag=="StartPlt")
+            if (transform.parent.tag == "StartPlt")
             {
                 transform.parent.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
                 transform.parent.GetChild(1).gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -92,13 +92,13 @@ public class PlayerController : MonoBehaviour
             SetPlayerPlatformPosition(collision.gameObject);
 
         }
-        else if(collision.gameObject.tag == "Finish")
+        else if (collision.gameObject.tag == "Finish")
         {
             playerAnimator.SetBool("Victory", true);
             collision.gameObject.GetComponent<FinishScript>().oyunSonuFonk();
             transform.SetParent(collision.gameObject.transform);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            
+
         }
         else if (collision.gameObject.tag == "Obstacle")
         {
@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
 
         if (isOnRight)
         {
-            if (tempTagObj.tag=="Obstacle")
+            if (tempTagObj.tag == "Obstacle")
             {
                 transform.localPosition = new Vector3(-0.1f, 2.8f, 0);
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -177,9 +177,17 @@ public class PlayerController : MonoBehaviour
             else
             {
                 transform.localPosition = new Vector3(0.1f, 4.5f, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             }
         }
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "OrtaNokta")
+        {
+            BoolScript._ortaNoktaKontrol = true;
+        }
+    }
 }

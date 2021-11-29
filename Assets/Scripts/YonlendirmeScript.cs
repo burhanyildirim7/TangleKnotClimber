@@ -88,14 +88,14 @@ public class YonlendirmeScript : MonoBehaviour
             _ok2YukariLevel2.SetActive(true);
             BoolScript._üceDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform3 && BoolScript._üceDegdi)
+        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform3 && BoolScript._üceDegdi && BoolScript._ortaNoktaKontrol)
         {
             _ok2YukariLevel2.SetActive(false);
             _tikler[4].SetActive(true);
             _ok2AsagiLevel2.SetActive(true);
             BoolScript._dördeDegdi = true;
         }
-        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform4 && BoolScript._dördeDegdi)
+        else if (other.gameObject.tag == "platform" && _level2 && _level2Platform4 && BoolScript._dördeDegdi && BoolScript._ortaNoktaKontrol)
         {
             _ok2AsagiLevel2.SetActive(false);
             _tikler[5].SetActive(true);

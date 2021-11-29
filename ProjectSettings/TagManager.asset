@@ -16,6 +16,7 @@ TagManager:
   - star
   - StartPlt
   - Obstacle
+  - OrtaNokta
   layers:
   - Default
   - TransparentFX
