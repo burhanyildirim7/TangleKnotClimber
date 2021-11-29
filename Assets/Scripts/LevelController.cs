@@ -26,9 +26,9 @@ public class LevelController : MonoBehaviour
         {
 
         }
-
-        // PlayerPrefs.SetInt("LevelNumarası", 0);
-        // PlayerPrefs.SetInt("LevelNumber", 1);
+         //PlayerPrefs.DeleteAll();
+         //PlayerPrefs.SetInt("LevelNumarası", 0);
+         //PlayerPrefs.SetInt("LevelNumber", 1);
 
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi", 0);
         _levelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
